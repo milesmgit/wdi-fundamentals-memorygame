@@ -29,36 +29,91 @@ const cards = ['queen', 'queen', 'king', 'king'];
 // cards in play
 const cardsInPlay = [];
 
-// first card user flipped
-const cardOne = cards[0];
-
-// add the first card to the cardsInPlay Array
-cardsInPlay.push(cardOne);
-
-// debugging purposes to verify that the user flipped card 1
-console.log('User flipped ' + cardOne);
-
-// second card the user flipped
-const cardTwo = cards[2];
-
-// add the second card to the cardsInPlayArray
-cardsInPlay.push(cardTwo);
-
-
-// debugging purposes to verify that the user flipped card 3
-console.log('User flipped ' + cardTwo);
 
 
 
-// if statement to check if two cards have been played at this point.
-
-if (cardsInPlay.length === 2){
-  if(cardsInPlay[0] === cardsInPlay[1]){
-    alert('You found a match');
-  } else {
-    alert('Sorry, try again');
+function checkForMatch(){
+  if(cardsInPlay.length === 2){
+    if(cardsInPlay[0] === cardsInPlay[1]){
+      console.log('You found a match');
+    } else {
+        console.log('Sorry, try again');
+    }
   }
 }
+
+
+
+
+
+function flipCard(cardId){
+
+  // console.log the card that was flipped over
+  console.log('User flipped ' + cards[cardId]);
+
+  cardsInPlay.push(cards[cardId]);
+  checkForMatch();
+
+}
+
+flipCard(0);
+flipCard(2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
