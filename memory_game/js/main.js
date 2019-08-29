@@ -57,6 +57,7 @@ function checkForMatch(){
   if(cardsInPlay.length === 2){
     if(cardsInPlay[0] === cardsInPlay[1]){
       console.log('You found a match');
+      alert('You found a match');
     } else {
         console.log('Sorry, try again');
         alert('Sorry, try again');
@@ -68,31 +69,40 @@ function checkForMatch(){
 
 
 
-function flipCard(cardId){
+function flipCard(){
+
+  const cardId = this.getAttribute('data-id');
 
   // console.log the card that was flipped over
   console.log('User flipped ' + cards[cardId].rank);
   console.log(cards[cardId].cardImage);
   console.log(cards[cardId].suit);
 
-
   cardsInPlay.push(cards[cardId].rank);
+
+  this.setAttribute('src', cards[cardId].cardImage);
   checkForMatch();
 
 }
 
-flipCard(0);
-flipCard(2);
 
 
 
+const createBoard = function(){
+  for (let i=0; i < cards.length; i++){
+    const cardElement = document.createElement('img');
+                            //  attribute name,   attribute value
+    cardElement.setAttribute('src', 'images/back.png');
+    cardElement.setAttribute('data-id', i);
+    cardElement.addEventListener('click', flipCard);
+    const gameBoard = document.getElementById("game-board");
+    gameBoard.appendChild(cardElement);
+  }
+};
 
 
 
-
-
-
-
+createBoard();
 
 
 
